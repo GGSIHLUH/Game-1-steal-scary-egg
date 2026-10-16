@@ -535,6 +535,7 @@ local SpeedOptions = {
     "0.5 (HIGH SPEED)",
     "0.1 (NOT SAFE)",
     "0.09 (NOT SAFE+)",
+    "0.001 (NOT SAFE++++++++++++++)",
 }
 
 local selected = ZoneNames[1]
@@ -775,7 +776,7 @@ local function BuildHub()
     local Window = createWindow({
         Name = "YSS HUB",
         Dev = "DEV: GG SIH LUH",
-        Description = "Auto Egg + Zone Teleport | UPDATE-9.5",
+        Description = "Anti Ragdoll And anti Banned| UPDATE-9.5",
     })
     notify = function(title, text, duration)
         Window:Notify(title, text, duration)
@@ -847,7 +848,7 @@ local function BuildHub()
     })
 
     L:Slider({
-        Title = "Tween Speed",
+        Title = "TWEEN FORCE",
         Min = 200,
         Max = 2800,
         Default = TWEEN_SPEED,
@@ -858,7 +859,7 @@ local function BuildHub()
     })
 
     L:Slider({
-        Title = "Altitude (studs)",
+        Title = "OFFSET HIGHER (studs)",
         Min = 10,
         Max = 150,
         Default = ALTITUDE,
@@ -869,9 +870,9 @@ local function BuildHub()
     })
 
     L:Slider({
-        Title = "Step Distance (studs)",
-        Min = 5,
-        Max = 50,
+        Title = "STEP STUDS (studs)",
+        Min = 15,
+        Max = 500,
         Default = STEP_DIST,
         Callback = function(v)
             STEP_DIST = v
