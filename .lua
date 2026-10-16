@@ -1,3 +1,1022 @@
---// This file was created by XHider v1.2 [https://discord.gg/ynvq7ED4Sp]
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local CoreGui = game:GetService("CoreGui")
+local LP = Players.LocalPlayer
 
-([[This file was protected with Xhider Obfuscator]]):gsub(".+",function(z)_NI_yB3b=z end)return(function()local N,y do local z=math.floor local h=string.char local B=string.byte local function K(h,B)local K=0x0 for V=0x0,0x7,0x1 do local f=h/0x2+B/0x2 if f~=z(f)then K=K+0x2^V end h=z(h/0x2)B=z(B/0x2)end return K end local V={0x1A,0x1F,0x59;0x16}local function f(h,K)local V={}local f=0x1 local x=#h while f<=x do local K=0x0 local Y=0x5 if f+0x4>x then Y=(x-f)+0x1 for z=0x1,Y,0x1 do K=K*0x55+(B(h,(f+z)-0x1)-0x21)end for z=Y+0x1,0x5,0x1 do K=K*0x55+0x54 end else for z=0x0,0x4,0x1 do K=K*0x55+(B(h,f+z)-0x21)end end local J=z(K/0x1000000)%0x100 local G=z(K/0x10000)%0x100 local A=z(K/0x100)%0x100 local d=K%0x100 V[#V+0x1]=J V[#V+0x1]=G V[#V+0x1]=A V[#V+0x1]=d f=f+(Y==0x5 and 0x5 or Y)end for z=0x1,K,0x1 do V[#V]=nil end return V end local x=([=[XHD:1`oj9:3SC'3dEE*Im5Q0Bg4%WF_a*^DL+H(D0@L[3_(oSIX3M&<II)ABm_mLF_r*?=Vbpq.<g&Z*ZnN#H$;5Y3/1QO:*3UT)BX_@)PKV9LB(IN"WpVK)Z</Ae,`^J"<Yqq)JheW(^X?5%j1*=)Kf*sEY2GS'H_30)Wk!7eIl#`(EZTq)Z3SNp_6lZ&Kg$Q)M_0*7N,DC+!7a%)V\I3TcI:U*Zo_B)P0eAD\lPU&g+e!)So_qa;A(,*?X;R)QR0[C)C)%*?S*!)R`NZcP'I/(*DHQ)GF*GJdY^N%Nf<b)W"(%SIAYN#Tjcd)C8#lA.2Tg%Nd#")IuMWE!f`g%j*P7)Cn2kh?-o."s:Gc)A#1M/.#JJ%3MPM)Ri'L:'FcD!$=rE)B(sY*WoR?!?[%*)Q#q=0EPBe)]r2u)BVck)BVWg)BXAC)BWo6)BWB')BTY/)BT2")BUaN)BU1>)B[TI)B[KF)BZd2)BZm5)B\hl)B\Vf)B\/Y)B\D`)B[rS)BYLc)BY%V)BY:])BXhP)BXPH)BZL*)BZU-)BZ:$)BZ's)BYUf)BYjm)BW-!)BVin)BVNe)BVWh)BVHc)BX8A)BWr8)BX&;)BWl6)BWT.)BTk6)BTP-)BTY0)BStr)BT(u)BV$W)BUXL)BU7A)B[?C)B[';)BZa2)B[!9)B\qp)B\;^)B\,Y)BYOe)BXSJ)BZO,)BZ@')BYUg)BW/t)BVik)BVH`)BXDB)BWZ-)BW?$)BTV,)BT;#)BT+s)BU[J)BU@A)BU1<)B[ZI)B[KD)B[$7)BZj2)BZs5)B\J`)B\5Y)B[oP)BYF_)BY1X)BZI')BYdi)BVKb)BXAB)BW?%)BTn5)BU"8)BT8#)BT%r)BUXJ)BUOG)BU=A)B[KE)BZj3)B\nm)B\>])BY@^)BY1Y)BXtS)BZU,)BZF')BYai)BW/r)BW8u)BVB\)BWZ+)BWc.)BTe/)BU%6)BT_-)BV$R)BUdK)BUUF)B[`I)B[E@)B[NC)B\eg)B\J^)B\Sa)B\8X)B\,T)BXkM)BZ^,)BYdg)BW2t)BVlk)BVE^)BX/:)BWE%)BTh1)BTS*)BT8!)BTA$)BT%p)BT.s)BV*U)BUXH)BU+9)B[ZH)B[6<)BZp3)B\_f)B\Yd)B[rP)BYRb)BXeL)BZI&)BZ=")BYdh)BW2q)BVZb)BX28)BWu2)BWH#)BT_+)BSqj)BU^G)BUC>)BU+6)B[`G)B[$3)BZj.)B\hf)B\8V)BXYE)BZX()BZC!)BYXa)BW/q)BVih)BV]d)BXG@)BWQ')BTS()BTG$)BV*S)BU@>)BU19)B[H@)B\Va)B[lL)BZL%)BZ6s)BYjh)BXGM)BWl=)BWT5)BTk=)BTS5)BT8,)BT#%)BUCL)B[EL)B[NO)B\_q)B\Yo)B\&^)BY"])BZX6)BW0*)BVp#)BVEj)BWf<)BWK3)BZg<)B\bs)B\Ml)B\Di)B\)`)BY4d)BXJO)BZO4)BZF1)BZ+()BVcq)BV9c)BXAI)BW`7)BWK0)BU%@)BT_7)BT)%)BUdU)BU.C)B[cT)B[HK)B[0C)BZm;)B\u!)B\>d)BYLi)BY7b)BXSO)BZ^6)BZC-)BW'%)BVp!)BV6c)BXDK)BTn=)BTS4)BSr")BUgW)B[WQ)B[?I)B[*B)B\bq)B[rZ)BXhW)BZL1)BZ1()BY^p)BW9()BV`n)BXDH)BWZ3)BWT1)BTV2)BT2&)BV'[)BUFI)BU(?)BU:E)B[`Q)B[*?)B\Jf)B[rW)BY([)BZR0)BZ=))BTA,)BT)$)BU[Q)BUdT)BUIK)BURN)BU7E)B[$>)B\Vk)B\/^)B\De)B[rX)BY@d)BYIg)BY.^)BXPM)BZU2)BZ7()BYpt)BYgq)BW6%)BVcm)BV6^)BWo8)BWB))BWK,)BTn8)BU";)BT%u)BUXM)B[TK)B[*=)B\Pf)B[rU)BYOf)BXeQ)BX_O)BZF*)BYsr)BYXi)BYal)BW9')BVNg)BVBc)BX2A)BWo9)BW`4)BWB*)BTn9)BTY2)BT"u)BUgS)BU:D)B[BF)B[!;)B\Yj)B\>a)B\&Y)BY4^)BY"X)BW,e)BVKS)BX;1)BX&*)BTt()BTLp)BTb")BT:j)BSta)BT(d)BV$F)BV-I)BU@3)B[i@)B[6/)B\_Y)B\t`)B\MS)B\2J)B\,H)BY:M)BX\<)BZ!a)BY^Y)BYg\)BW5i)BV`[)BWr()BW`")BTk&)BT\!)BT%d)BUX<)BU..)B[B4)BZp')B\GR)B\5L)BY=O)BY:N)BX\=)BV7')K$Y)ZB;t'T&!Ka)CJaqdmgjL=P[0s)Z&osJEKJPF8T,U%c(;()F!/oOo/;sip7E2iVZdnoJ.W=hbAUAOSWDsBBO<XU>9)j)F[aD)XR;[)3H40]\Q[*)COEo5XmWWVqkSn)Z!:mN9@aR@f0=D@GP*&)Eosn4oACtMsMMC*W0"TYVLLM+\g1H.Jb@=)s=Ci/)=JH)F[jG)XR#65*;d96JY`Z)CLV1D+7/K1#61P)Z%T/!p>qsZi!o@g>,pJ)EoT8eGNDa[HneO=o;A;3\nI6b>%dD_YRO[*9SM^]%pX-)F[gF)XNp'fTEj&'\uk,)COI.,t>o\+l-H?)Z!i+Fm![?JG`Lb2r.XQ)Esuu%fBEE%I@eO%K'<D3\j-76;=-?GksOR:?VFRP20CZ)F[pI)XJ/Z9T`*;p"`^c)CL1b_aYOjO53YK)Yu\H%d2HR[/=#A<o$pp)EtS4:Ae30([Qe=I/I(^k;(+icqV`ilhZdh)!C#g'AZq0)F[mH)XIN@@?L=6cllL,)Vn4*)TLFW%/Qo4c0)2%(u8I5)F\!K)XI]%qiN2`()MCe<S^Rh)Vn:,)CIbQdbRn=)TI0o$'D8D45EjO)Vn@.)VnI1)Z%t-/a)\(jtb'I0j>Q!9(0Y;*8OX2)Vn:,)CJuUl.o>T)TIYuplSPlT%usR)Vmq")Vn%%)Z#ao1?X(smP9-jG?`-tN:49T2Vgt@)Vn:,)CJ4bdG7e<)TM-j8s,,+Oki_I)Vn(&)Vn1))Z$6<$KofuJ22@-J6Pmbq!U7W(u7q&)Vn:,)CIh((u81-)TKL7`fW^BYMDJ[)VmXo)Vmar)Z%Mb2s4ZCQSS6V#@$ZIiU>s-38Hn:)Vn:,)CKt,s4pZj)THR-99I0WrS9mX)Vmds)Vmn!)YtlO=6E@,,r58<=BjE:mdIFb(u7Xs)Vn:,)CJ"6m+kYW)TIPoWfbDV/_t[f)VoWR)VnI1)Yt1<RHHU9b;.NUkZ\S4=7>ED(#=3P)Vn:,)CHrCkhT5S)TKu2=HR&E:>L43)VofW)VocV)Z!IbbiaHL1GTlWDd*kSdI/.;E8?!Z)Vn:,)CJDl:#/eb)TJt_XHA=o:#114)VocV)VocV)Z%!p.Hc:KT/%8T`ETJs*q(2q&D_dN)Vn:,)CM6N:Yf"d)TMCsf9*@V?/9K9)Vo?J)VoHM)Z&Q@PNPbD#Vt9W\6BoO;XXpV"l427)Vn:,)CJ7un(gtZ)TI+,erd72Z/'O<)VoKN)VocV)YuT0*To(4qD&q6Lg,q?`:)Jn7,<&&)Vn:,)CO2`N87JL)TJ>;cB0ocK\]$3)VocV)Vmar)Yu80r9&!8M)+$&)-\]W3q$?_8bsoaHKRb9n(h7b)F[sJ)XPQ7/F?XW)V.b$)XU]D)V._#)XUfG)V.h&)XUcF)V.e%)XUlI)V.n()XUiH)V.k')XUB;)V.t*)XU?:)V.q))XUH=)V.Iq)XUE<)V.Fp)XUN?)V.Os)XUK>)V.Lr)XUTA)V.Uu)XUQ@)V.Rt)Ng<1Hl)B=1`')2:Yg10)R3B[`0$[".c"eS)CO(OrS;-&)TJsFr/n>k1>Q^])Vo-D)Vo6G)YuinalaF4e1r$KgeITiH2=ra1?W*enLRl[L9Xhr,Sqe3D;B"D)R3B[HBH:r6euGl)CH9<1#6LY)TILpdZFR2DV]4H)Vo-D)Vo9H)Z!t/Ep'5s:GS(`>YXTOf(sB1hWHlL;(Poed]m!l%i7`n=5@:#)R3B[.$6^02Vi'_)CJh)A)1f6)TIj#AWbR<ESY"<)Vo-D)Vnm=)Z#hQ(?b:"*AWV/#u-I]PPPuP"6WCjS1Ik[?EmZLXr"(a/DXbN)R3B[glXdq,2HrK)CNuPf\L3V)TERd"d.(:W82##)Vo-D)Vnp>)Z"e]E9CWWkqXc;DbYMH2Ytb:RHGA;+"UV3Xg).I/f/@R)r5-B)R3B[foZR-']!I=)CK1W5M]ug)TIElG*.!2`8,#@)Vl8H)Vl5G)Yu`a8EY6$?SZI*eP-e0i;1iX?fr>%lRZ6U'X:mY65KmJ=kt#4)R3B[cB5m!?eoE3)CPPJUYTT!)TM%@i/q4K0&7E])Vo-D)VlDL)Z"r9Ich*%lS<qSdnTSr0)?:#V<;:dIOn\=j0;r,iK<T)CDYWsQ/*Dq)R3B[W0'OBP20gf)CLXRB&.,9)THP/CQT5?$f)m?)Vo-D)VlGM)Z&<;kNAcNkV=7`n4f]jNr%C9_rhU.+Y6h5\b`d$.-Fff3@nJP55P;GIcn)_c.uY@)F[F;)XP:^7$5_//_t+V)CJCN=P[X+)TM=T23GmpADIh5)Vo-D)Vkr?)Z%T>XQRN_1GTH8#Ybm$4Skfh=6D]b.c"AG)F[C:)XLe`6'5,rWne=()Z%V%.-JZU_qeT6)FZq-)XILO\<5<6f\I2V)YsLl=m(DRmG2%`)FZn,)XQ/`Clna3T%t"p)Z%'$_rpa5>hr[$)F["/)XLf_>ES[@%G_a7)Z%DP3p0;*2VhXS)FZt.)XJinI?EaDQ/*,i)Z!RFXlkgu6/>f^)F[(1)XLN)Y`VHCH5?dIDYf)f5j'Im8_mYf)F[%0)XJkQooW[(BAF@>)CIH`IZXnW=WpQV)Yt>[jQC0?oJ4orhG(q3EV_Jl*p4U4^R-jiRUg^Y)Vn[7)Epc@.+VK9)Vl/E)Eqi2eCIh>)XKg_d#jK_JDCMI)COtn_;,A4)TFG'8<M]M\fjHW)^/E$)Vn[7)TK4(5Pi5DIHS;*JMP7/!kdc$$04ih?FQT'@:W1K)SEEoRupuMB,;K>%c%L.)R3B[Nnk$X)R3K^\D7T0)R3H]#i,n))R3Q`W0(S;>MTf*)Ytn7'^$?D?S#Ft1&?2#HKU>C45F0X)F[.3)XKJW^QJPeQQ\a4)Vn[7)TGiL=o,OL`of?3^"ls0)F[+2)XR-Yk`L/cSP'iYGPVEjR-.q),2HN?)F\oe)XO7rZ&tC!`ChnhL&+^6>3@g$J_aTI)F\ld)XKWp8!0cHYMB[()Yu=QP389%4l'BZ)F\ug)XMTu%$<BOs4m\k)Z&].>j"1gak^5<)F\rf)XP)dk)jqcRUpp5Du-X#<p*-so\Edg)F]&i)XJm<U64cUY3edr)YtT>oB-ND+5L3<)F]#h)XIP?ipB8P)V0BR)XU05)V0?Q)XU-4)V/mD)XU67)V/jC)XU36)V/sF)XU<9)V0!G)XU98)V0*J)XTg+)V0'I)VkB/)CO)Ma5$h5)TKOgI?A.CQ0ggP)Z!Qh2!6Uh3\l0m$+q;uB^J/&)V/U<)XTj,)V/R;)XTs/)V/[>)NhoXnD+-])YsI:YNO9%9ANkh)F\BV)XJ#(.d]V>)V/a@)XU$1)V/^?)XU!0)V/gB)Nd),6/;\[)CK8o/s03M>4$SN)VkN3)CG]O.bt=F)TIEXEr$p;[--+g&i*J0mnN`VFo"A$(?_j?C>E/2)F\NZ)Vl/E)F\'M)XQKbc67'@)Ck-**@fP7X.82a)R!6t,p@+@)j)NY:Ea-^)u>o*8EUs8bVI>k$,#mJ4L_J<hIPX\)Uk%C^6PSR2^)uQ)j.7JD'<g5)u?sl!p=cc:bmGT@D#^.p!]gINFGdj09O7sVqhLl)CJl"k)i_+Kct4I)r1W4)CGfL<S[lq)TF.t!W%%9e)t[:U,$q.nP)_BT_\n5A*;Afh;)?P)F[aD)Vl/E)F[jG)XPZEZQWEd)Ck=P8h00pk+'.")R!<mD'<a3(m2MU=<Ula)u@tJ-0KHqFu!B]9"]*skdUGQra`_W)UlZTR@ou"G9C!'o%$nY)NbP'`?@qk)j-&Sa5$q8)Z&),BBMhlIkpQ[%o%*g_>:tqD<Kch8_mYf)F[jG)XR-N"-N#iq&rTN)j(lY.c!*#)Ac+\)r3Ih)VmIj)CLHP);SsA)TH*tJs"#>&)@p8)Vl)C)Z!i"_rjL]qD./Lk?Am^Hge]iGMP:q)VmOl)COH-A)06_)TK(e`/tV6YMBm.)Vl)C)Yu*iDs-q]Jhe+s]N\J+U[OO.'AYkg)VmOl)CLcajP<!8)TH4/5EY`_O52N+)Vm(_)Z&EIA*9P7,VmW5R9S[[b3t$K0ASE")BiE&)r4F.)TIdbdI5(AESWAc)VkE0)XjA0?6NMg)Z%4KRcdoAl8$;F:/,C<pA-*mI-7:qCY`83)F[gF)XO7)`Z\.o)j.hSrZPG\)Vm7d)Z&WkalhQ@<\f-*C:s,<Jg"&.)j+`gN?MI@)BiE&)r5NM)TKA'ZJAe%)Z!!/&*MC6<AG`$V7[g-B9AoTS0:lJ)j0mZCEZjs)Vm4c)Vm=f)BiE&)r5NM)TGX]rnTIJ)CKdX/DV`j)TK,-D;?TU)TKM(V#$1#[HEQu&MhD)%Sc`[HhqDo[HGG6SD@Hd)F[pI)XO2G@j,+n)VlnZ)Vm:e)CMX=:u*W;)TJU35M[e))TE?20(45MfHFN9)VmFi)VmOl)CK=0;;FDO)TKFk@?KQ=BAES()Vlt\)Z#A]U$&Sb?nr+Z-sM2uAFDf%)BiB%)VmUn)VmOl)CLqHp>'Bt)TKk!W0*u]S_[Qe)VkE0)VkE0)Vlq[)Z$6"[HFGuHno9NH!;HC8aimfG*1NEM]l(9)j(Tc=s7&b)Vm%^)Vm"])Vn:,)CM$n*8OU1)THtZ(Qf:]s4qf5)VoNO)VoNO)Yu?J?0<05JhiL!>?elW%,EfW)CM]XC#(3R)TE6+M;9Qq)TFS;r;,&#7d"fD-Sbh-5YVcA^&!SA*p;pc!Sq#s)F[mH)XP/9Bd$^s)VmFi)VmOl)CK<iHegk$)TGGNi/n>Wg>)cF)VlPP)Z&<hh<25L8M\pue6>i]_!cH1_'*&!)VmUn)VmOl)COhIMqr%^)TK0r&s6a,b2$>=)VkE0)VkE0)VlMO)Z%.LeE<hsPqq"[c<GD1H1)-?Jrt_-o-$sH)j,Oo!o5(:)AdKZT%tS+)Vl\T)XmX-38Ghq)Vn:,)CIX,ADL6$)TEI]#*D-4cJ:l()Vmds)Vmds)Z$\K_WS\0bqbk?nQUsoD=@MXT%tb0)Vl_U)XlJ$^"q?W)G:dRJa\E2);R(a)BiE&)r47))TIN#m-dKFjPAH()BiE&)r5uZ)TLRJ1[dWC2Vm+')Vs*_)Xh'K?/7"H)Vm:e)CJ.u^tgLV)THoiin`E+)TF:7qsQJL_;.-f)VmOl)CKFa+l-fI)TJpkKTVZ;k1p%R)VlMO)VkE0)Vs0a)Z':`5j-8Io.lD5ITtf.M=8F\pt\.M)VmOl)CJ4Pa5(DE)TF86>*5W)/)=JH)Vs9d)VkE0)Vs6c)Z&DQf]Q(9XYL.k!F+]`$h"l98Kh7Q)Z!^p4QlIaBejR_mS+hHmJ;R-U$']eCu&A4)F\!K)XLT^/Kmq+)j)mN(Em-$)VrdV)Z!P6>Na%i:bi7nqn,<[d?/H?S0:lJ)j+I5Hm)Z/)Vl_U)Vlt\)Vn:,)CKP;(u81-)TI@`HBFd)_qf\U)Vm[p)Vm[p)Z!i1O69eu!A]=s6sHNr\D9%Y)CL4p+l+R_)THC&]\OtO)TM*_m.qo_S`_DrKecWnUeN9?,l1=D<ThoR5i#]])F[sJ)XR9.5TsGL)VmFi)VmOl)CHX0Cu%8j)TK4k-B[=OVqh@h)VraU)Z'EVP33UXe1uRq%9nMM7.5N^%3]$n)VmUn)VmOl)CMKdjkXSc)TL01Tom.C3o+'W)VkE0)VkE0)VrjX)Yu'GqWF_52DPFoW`q5C+RdP[N0.h2?Qi8^)j-N'hVHTq)Ae(2PMIT%)VrpZ)Xlmm4PeL&)GBE3qX6M=n(fc8)BiE&)r5NM)TME5bO7rP]%u!S)Vn:,)CP'DZe]:1)TI-n/!6=s<8Cgq)Vn[7)Vn[7)Z#>b+m3EN`%oaNj'0D.f^G0HpYFR>)Vs!\)Xm]i;;E`<)Vm:e)CM3I`8)pZ)TH,:;;E];)TJq^kjR&^l.nB9)VmOl)COEdIGJQP)TJ+cmZF_ukM6.S)VlMO)VkE0)Vrs[)Z!jG4m.R)C,/NGP$:=A^$eEs-/Cd$)VmOl)CO*AJ)+cR)TK\:SrpKDb2$>=)Vs9d)VkE0)Vs6c)YuYELZcjSJMP^$Y$39t)t1D2dihm1)Z&\>B'8g3`A6s]CJAeT?M]iogZKa'VVPMn)F[L=)XQI>nKC^E)j0blhB>`3)VrdV)Z$gN9BX*9">\=h4M9\LE$8'o)VrLN)THg?W^c\YipCt+)Z!B0[HF7GRJ^/&ZJES;)ErhF?Mmn@E9nJM(Aq8MHnsCE4hP!NT[NudLjfn<B9<@m[,&n@)CJRJ38M^m)TEG_]oa12G9L</)r2kW)TLa'Lu$;k)Z#(mT'&WABJRf],u+1dU&*h]&a.2)1#6+N)F[aD)XMuF^`ceq)Bii2(q[Y[:b&h'8t;dl)R$Z^@3Jhj(e0_%PPU`#`og1$"oMI<i8)Tm)Eo[j)Z3\Q`U"XsI/I(^E&-_-e%?NtE$8=!(m-LK\GC-.$KnX0LGH4nT=d,]GIO]7Rq,e<)QtoO`$&G&(u6PT)Vr^T)Xj7YEjoMJh:#W&'(E-pAft1ke^dh<)Vr[S)CKDIlB)rE%c+r:)Vr1E)CNDW)Nd*&$6`Le)Z%>;,NnF[<AK-&Na!i.AOLJ>/Gf-iOls(qlnWSF<4qh)HelRT)CL;8s,g41?gW1U)Z%L(mH:V"DDE4DZFhL3?dhp\2\9m!]A6R))CHNr;+>>QA)5!;)Z$k$AESK=*rK+UMVVGO)F"+B)uNeRdd/V).K!9`_(mHp[TeS+i'sZ+i8)?f)Ag0LY2.#3)VrFL)Xf%R1YjDo)Vr1E)CP;0pQ5I=P9F$D)u?fB>3?3PehTEM,$X=`*(F(Z=l!@!)VrCK)YuJ]eE=t72#LGkk2#hK)Esri./[0_h<at);uB`55r*jmS6Jkc=ms7pnD3jT)VlMO)Xih6Jbo8l+m8Y(m/0s$_VP)))Eu][')YiIYjB.(=8Z/9;_l>Kpq.96>15!@&Z:->Z&plk4<[B6)j/d%c50gJ`818*)Vm4c)XeW+]&!<#)Vm%^)Xl\#)Vt<,)VtE/)XfDdJbn,u=m$r]1bp*i(/:g/./Kr!Hfs\T1Yl=P)F[aD)XQ/m+74@i)V09O)j(B^(*Qcq)Fcmq$/PRr)Z&YLRHIaDgAG%gqq^cX)F!JLhY^Ikr9T4655\LuTe\(U5u".0=o.`G39R9WC#*&1)F[jG)XKMLdZG0RfHFH7)Vslu)TKf=n0)!O)Vt!#)TGllM>H_er9)H+UYT2k)F[gF)Vl/E)F[pI)XP/L?6NJf)FfK(f%om4)Z$2GJ`h@aKD\geL>DM<)F!uH]DPbHh<]W3]_kkIK/1P"#/#cCdNMd0)Fe`r$5^-VES\PK)Vt$$)Xi3_1>VjD)Vt-')XlhoptbWZ)BhKa)t0.F%c-@b)BhKa)r4d8)TK,a2Xe0uJDKE))XVqg)Xe?GZhhR23TgF`g\b.hnD3CG)Enj.<W#r7<9uI;/,WKb:,5khDnJ7AE?SL$)FeqafA5^-)Z$U5WTSO^;Z'W4!o<Mb)Es(?>l7\>'^Uqiq>=>1pG1Ios1Hi/dNMd0)Fj_X&f6R@1u6(c)Vscr)Xga'T&';[)Vs`q)Xjs62r40C)BhTd)t/[$%,L.`)BhTd)r28F)TK\'M!rQG4Pf3:)XVnf)XkS]s8'm!RchJ2!W6%838Nm9)Epb[&c>`HNU1N?^AM(KX>4R[>eIYsUENeV)Fj`Hp(o^B9&7E$)Vsit)Xkb)o%j3Z)Vsfs)Xe-,;;LIP)G:LEbjVh)>2ABX)XW"i)Xj-?9D\VA7H_id])5YG*8TQh)Eq^SWVfj6r9VTM_YdLO8hu;[*5''AD]r:")FdqOg_ZaZ:>Ni()Vs<e)XjHN!8[Pg)VsEh)Xm^NK&,Z,)GB>R5jr;>>2ABX)XVth)Xkhu@f!rT$g3$g^AM(K#2S5R)Equ=U\n40.dX-'Ac,XG4#6V1]Y(@_W?GF\)FjJ<$l=15H/6CS)VsBg)XiZ2B&2Pa)VsHi)Xhtd9\nkI)VsNk)Xi:k]A;]e)BhE_)t.\.A)6>a)XVM[)Xfd(iVJ;bXQM07UAS+/:>M<R)EnErbktQY5O@Hdl24X!<\g>QMS'qO%O#!k)Fh\nUDJQ]/D\5[)Vpbr)XlU'U>=oH)Vm7d)Xlcig>1p-)VoNO)XhWPW86\R)BhB^)t05s#MnSZ)XVJZ)XkOJIJW"DWTRXK@Jj4C)r6nt)EppK8c2[++mcjh_#.:M&Mh[6@_B]SMBQ.=)Fb4&&JmEAH/6CS)Vpku)Xm8NLY_&-)Vpht)XeAX2VmO3)Vl&B)XiQ=QegmA)Bh?])t,,`*o6#q)XVS])Xj&$_"r#PpZGT[g&+qffA2i1)Eu#a-2^j\k3Ne_d/6u]_(p[ITY.;0&KtEq)FbQ3B&0!n)Z%S:p?.:PFSo5VC#/Ft)Enj(*W0"T]BiTR_u*UPU,'us\@f9s@3Jnl)FcVE1YjAn)Z$2H;Wm2<Mu6ZmDV^fu)F!E7M#:?jMX2CZ3;ckoI55(N*EtU5L":Yf)^0\H)j/&1dJ=<op?/XED).NLGJ%dgacWmkd32U-)FfeY2;Ol?)Yt.tU?CM'Rf$8'8_rnP)Esb&OSi2rJF)#W&H#WGT/%f<6VRkTp%n!X?KXVq4l'BZ)F[mH)XNtFa,u82JK\86)Vslu)TG=*j<7bD)Vt!#)TKF+fD6[*l0$$&5M]T\)F\!K)Vl/E)F[sJ)XN]DKop2OX!'kH)r4d8)TInknG:Msn)m_^iS@cT)F[L=)XR!mH6HW2)FeJJ(>\Ns)Z"-<3ToLNgAG%g2;Rp@)Eo^5Q2F`"D!Z.$./[0_W\S4%5ePAFJg"J:)Fg+B$Q!$&*8SOK)Vss")XhhW]\WK$)Vpu#)XigV(Z"d#)BhKa)t/E<rS?]R)BhKa)r4d8)TE2TiU>]P=l&9W)XVP\)Xjm/Y52X,]B<r:=8Z/99&8eK)EnLO;uB`5>O:ORo))T*[5-f0`k6m</0S@9)FcXc-Pp/TGMU1Q)VpMk)Xhdp.Gan;)VpJj)XfTqbMD@t)XVY_)Xk/t$i3XV#Nt6e'`;&KDr$Tm)Enonp\\,/^?ca:GPkPYlS<<:oXrVb4X"/J)Fj=NYSV_Kl.s8n)VpPl)XloI"Prtk)VpYo)Xigk-f*u%)XVV^)Xe22HhtL3#j77#!rQ.9pYD#K)ErLY)uNeRip=tS/GrTcGVThff=WN6r#oA^)Fam;(Yt;k)Yu'[L?F"7\,9>DVqq"])Et>1bktQYiU#iObktQY(,?.99"a'Nc66L0)Fdln6f"(E)Ysc^I-2mU#lId?6f"7J)EuhC)uNeRg[#J;Qi'r$8MYCf9tY]Bn0(mL)FiJ#9AME?)Vm%^)Vp\p)YuZ'%d/+'7Jp7',i+:m)EufZrVTb5($tfc#Q.[>4>KMts1Bq0$I].o$<..6"-Hp#:*FTm(m/arQMS;9lK<[+/M\#G$;I!A`;7PH$0Ne,6eu#`)F[aD)XPN-+!F`%)Cd.+U7=+R)Qt*t;B^)s)3I@bJK\,2)r6;c)CM76%Gb\5)TMfl@?H%QBd$4e);T!B)COF-ak^VG)TJAsOc_(LXka!n)Vp\p)VkE0)Yt.Mo]OUt@kpa1iEJ/Tg*n.Nh>4";e`U+*\MD/`G>6Ik<;IjfmcXJI7P_T3]=afQ$b)XS:1Q6p)Um'Zs%M)GpQ>#M.NrdI(m-&U6MbOuqWD^35r.NSAkeJ^,5N[NRHJD'D;AJ5)F[aD)XNls"Hc&[2'HoS(m3[=Zlr9^)uB5I]'#MEU,&Yg'MW@_M>C\l[H@k$Qebp_)F[jG)XKZ=)'N)t)RNDTdje<TYaifI)XM',5p9GJ)CiakZ^g:m)R'"[[NT]-)3Nn-9HdLR)r6;c)CNC=0&:1V)TLcks,fVkW?GI])r53D)CL_##Mj&/)TFXnN00cA;;D6g)Vp\p)VkE0)Z$F[`96*uRPLlbi*51`;(;B!YPR\b+6Od&-o,Vf"ANCFnbP399]p"8nM9oMKtQuT;n(@K;e5/*)UkMZi]S]/BHUCmA(F`t)Bi2u)V.b$)q2sas/2H+8g%4OqUSaa)Bi2u)V..h(a4AE(m0o!AGS0MAES<Jc8)m$8A+d6psUB;+%["IMBH":FOjP0)Bi2u)V.1i(a4AE(m2f$IJR:u#3U+])D_*kQb3?_T@;k.RoiX_KHOA4$eADq)Bi2u)V.4j(a4AE(m2(-6i)JB;<P7&pG2]tf"<(9k0s3DD(SLFZQN?cf[a.?)Bi2u)V0-K(t5OZ#CqZ]'d-ToB\$9$)Bi2u)V00L(a2us)Ck.6NLZXR)R&Y8);P9.)CM*Pf%gED)TGm*%$@nshsGV')YtEP[HF\W&2L1=#e\@.Vmk[%RUf8:)R$o+3[&\_)3GFGe,&YN$g/)F!\sgh>eG8cY9A?1)3JQTHJK&H)Z#G49BRl<@PX&.K"MP2FLS`,N70$4_?F7/r#p>$*\()WR@J+8)R&0qH'''TM'6gR+-@_?H6G`n+8R)j6g+FRbVHdFs%Q!QoD2><U$'6,9\iti)F[aD)XRCRS0:uM)Cf6WD4GSe)R%YISfqb_*0Db1"<gk_)u?nfhrgZ?HnmidhRlbKUURP9G[te8)VkB/)CL)XHJOJp)TLZNg6)=grnUiq)Z!^t>j#!$^+s`G5eMQG+L`?##\6jT)Bj;?*g(+BX8:-kR-3,$AhjNX^q>6\0Hkl\*g$k'.btRM)Z"M+IHRF7FY^QuL:g_gimV$q/IG8;=<L]];q>%d)NjPaeD5ut)CP*&$^!c*0&=;Y)CIssbE9Q#?6NDd)Z'BI+6RNTcSEh5>?cd!B1@ujNno[1)Z$q1ki_OWrqok6_;36L)EusY<W#r7.dVc:U\n40/MaNuM+t$d'`&MH,Nl4tH8=<8>tqsBaSH5/fB3Ko5M]T\)F[jG)XP_!-6ZS/)Chq:<LbW^)R&sm![1b`)qI@l)'OJF)3Nci#5T9bPNP5mgbO,d$bV[$s0mIrp1,`r)UhQQD<T=A%3Sag[+8=p)Bi2u)V.@n(a4AE(m4`qU&'Rb8E[XmNA:b[T"Jp-2Uc/CN60%/HQZE+G1Kb2)B`6"Ib%^=)B`3!W7G,f)Bi2u)b+iO1*Ka8)Bi<#)Bi9")Z'5RMruqXNVllo0AVI#)EoB[r;9Y4lKn/MOo/;sLbc9-e%@E%U=8C[(8R`'_B;qr$eADq)NdfB(a3l7)j.+C]D;npi9+3"F><s"j\<UXDYfc1oB0l'*Sk!:)F[jG)Vl/E)F[gF)XJIY;B]6[)Cd6kbI"k>"J"]t)XJA<UENeV)CiO\mjb5J>Fb(%)R$XVA(*(-9-Ja")j/lQqV@)G)BhB^)r6Pj)FPou`'gCI0)FHA.d-+:5Vhtd(qdX)hB?tV)j(CHNr!S/kN>_=1bqJa[(Ocq9-J?l)j.#[Xs%!b)Bi<#)Vp2b)THnE%,GV5)CLB..c"bR)TFjY^6'k,RG@lZ)BhB^)r1N1)Z$/N39QCT'/KEkiEO^h2_!\R"T"s3.Ha!qatcAV'>2IlSD=/\)CHUnn(im;)TK%i:m(G==P\uQ)Z#^0L$-]r%Phb1j1MHS@3L(8)j,G@o%ej4)Z#Ya&a'/$oJ0Hg-G3<lg*(/G)j*2D+5M_g)CNL'c/!%K)TK2KBosP6Hm)T-)Vo*C)CH09b2$_H)TGKI0p-jU`8(G0)BhB^)r1N1)Ytm1_WN*hJ2.f_"C!G;Y:8/.6MaScp#l,T\M=R>_+japN;@J_;Wej[+Yno74hSj$)BjAA)_.X7odYEBXIMj()QtXfACI]uRZXS].NrdI)j/?Q!;ai72<WH]Otn9u92/<n(Ad<SIch!@.c"AG)F[jG)Vl/E)F[gF)SC!T2^)B@)CgOh'sq%tR%/OG)XLs8C*?ar)CikQi[Qgb-Cf#s)R%n9XOD&Y1*M)^)j)@,K\_.o)Yt"S-Ke*%M_a^2#JAQDo-&/j)j)K>j<7_C)Vp2b)COa#A_h#8)TDp&MigSrn0(mL)Z#d`Y30VogG54Wh+]L!Vtt?%b3&u2nM6D/\@eB;%G_"")CJ0Jf\MH$)TIdS_NF@.1Ym[!)Z%'+f&pBmAMT*OS%Qufa!#mI)j-W`C>FIW)Yt!5-KjqR=>J=j'YKRu-6ZP.)FfF\dihg/)Z"4]-KfCANVllopYCN=)Eu`udJR)^Zg@6fs85t7@P[a(gUr'$8)4.\)CK6!P22$3)TKZbDNU#;S)"bo)Z$?#LZ_oui%i:Ul+D^+As)[FjkYS*)CKhNd?0X>0)Bt^%d1p0>r'fk:JDoNNr")lf&u23ESXn9)F[pI)XIfJ4s>1e)mkBZhC?#hopjn])XP-P1#7Ku)CHOK-';ugV>:P*J`ls$W\WA!,$XI>fcaW:)U,^VT-6W=)qUp)#qDp(>b&YQ)QsFK*?fSA(m,M$!;`bmlfY`m:bk1MNP%Ej)VkB/)COEdT&#;?)TKimfTE@ZL>@V#)Yt^EET];1PVU4iXh5/oC:CX<)ItKC)BjAA)_*`ZlRHrrnsoIs)R$Y0/CWd7PTb#^)j/5HWqm8,[cc*]Yqj]sNEb90hUYmH)Bi<#)CfcQP:?]V<h/n+)R$a<Vpir&BH_g?)j)5ff\M8t)YsgfKBF2+M)+;8n@YCg1EgfT)j/B?L*9b:)Vp2b)CH<>eD4dR)TFs%c]MmZbTU1+)VmFi)TJP-!8V?))CHHn/)=kS)TH/=mZB<&(Yo*-)BhB^)r1N1)Z$ZU;!40r_D5DAW`r\>4=O[gg%qh1BBQLeh(jGKb>%(%T_aG\5N`FKhD-A;o=S8l45BlP)CJ@->MY2Q)TG;l/<MF5p>(`E)Z#)>@-9X8E&)ck6+gY+%O$9:)j/+`e(qPM)Z"K$Nouj_9JW5J[_.WlQ6C5`)j+B7kk^^D0'D,s68J/[#[<eJL"9HD)Bi<#)Ci;\/h0Y?(S%KI)QsgRCt!3f'p2IX4X"#F)VmFi)TITPMu%BV\EE?cQJGg^)F[mH)XKh#Q'$X21a,U0)r53D)CJ@%!8V<()TK=5PE@7i);P</)BhB^)r1N1)Z$cRm,tl^iA)VAZWiVI/1DeL+SmC#_rn!_f%jUI)F\!K)XLcNm?&#7c66O1)Bi?$)U,o`Hel1I)TIuhVYZ!BmcUetOkj:Y)F[sJ)XL=qZlr`k)VkE0)Of\DMCP\rW1;K[)Qu*\!g+HdG9L</)^/H%)pG0(a5+?C)TFi[&,Pc@JEKR\7,;,a)F[aD)XKQgKTU>Z&D[@&)Z%_W*p6A!B\cr0)F[jG)XKf55TtCg(pk9,(b1Ie:n1u7)XQ^tqB9&Y)BiE&)qSqAG:H6tTU[>K)QtPKr8"q")CGjF>MZt.)TFeN,*<)EeKJ-4)^.H^)(@Rb&0Y?q)#BY=c0%9&M_\b%JQqPB9@d;_)j,biD'<m7)3L5^62Jo))s=KMKeh9d"\gbi$2SX3pua9PZe\n&)F[aD)XOdtgEBZ7)CfuOG+:$%)R!'aK->:O*g)ITN$2:=)r6;c)CNg/Q/-*h)TG#?G*+-4;B]9\)'N)t(a3*!(][4J[jg=AG5@Y;_rp>Vf.p)>BhbUsZhba*IHOCSX>9?@`4WfZlaI1A`+1>;)VkB/)CO9Vk1tq2)TEtOs,i.("<g,J)>[OQH0=pJa"iC*qn+&SGdf=Jb@G?-)RkD8HXtbK)BjAA)_1g%.4VTen=8>T)QtN;K%$.T80Msg)j,OcVu!83A*5;R`\OoCi*/0`$eAMt)Bi<#)Cjadl^[km)Qs6u3[&P[(m4'sO!.^C)r6;c)CN$6gtcWZ)TH.r4-?-8g*'3,)#>FC+6UmK4Yj/e2,0nA6i&=>[HGjmE\bbPL:hY^FgnT;%qPSX)BjDB)r4d8)Cb;]3nATm)^0\H)j0lnYPK.QEp'd.j"fZODnH2EWndXj)CIj2dG9]r)TJ0OD39U4n_Flp)Z!&qQKO81XYMU\%D7cI<n$,qZ["&0TcdGQbgol3)Ne"m#pF:()j//O@JV2`9]m%KBJNrkgJ.H('`+.*H08#?-J_rC)F[jG)XM3:l60@I)Cd`Yc75<GU7@Mh)R&=hW7-A8,a#F;+sC/+)VmFi)TI8IS0:uM)VmFi)TE`G<m9/1fA3qP)TG^P+o8JRf&sbO:#0(j)F[gF)XJ=A?]gbF+5OLD)CM6`p"d7r)TH=%DiqusJK\24)BhE_)tXa__VMsB)Z#<+B'4tp5;M`DVG0:E;#9j#WTU5mQ/,^])F[pI)XR/IQ]Y%oA0G4o)b-]NkTO.G)Vr+C)CJ,QC>EP=)TIWR6]iEQ-Qub2)Vm:e)CNkq4l*@Y)TGE[(>Z21)TL9NB)3P#6g'pFV(r5/YZp-\l5+C0Ibfeq)Bi2u)Xj21?2E$^''G:qSGZJ)qq\Ro)Eu)C5l=_";!b5CHi-t]ZSG^]`(`\62#=/+dcXq'Fkp==)F[mH)XQM<1QhRt@j,%l)r7e8)TF]TKgqp\JF.Lq)Ys[j;<Me@B`(sJ^"paF)Er8E3rE(q([S47_#.:MCbkdB^eMeEWqpc1X66I&e(n:F)F\!K)XO&fnKD-Q)Fj,ZHhr.pnE4&kU\n40*8S"<)Ep,Z@/O+BiTsoK#lId?3&:E'Y.VFuJ!!`7Hej>j)CNLjH]\^9+SlB[3ToVJoJ.?bCJ>UdGPWN'8E\`N4Pa9Y)F[sJ)XIhuTcn[s)mi,qT.6hj:7ONh)XM)bCEZpu)Vqb9)TM<5?/7CS)CL0c,2KUA)THNuUYWBp)TL8pZ+FqVm'Mo!&LqX5`LK.5)XL6DhVEi#)CHSd+-?l7Xno"kXQTB*$Sk#:lrtTkq&s&[)U+a\q]T5\)Vl/E)C_Ns<S,=(6n/h1`geS#)Qu!?'&<O')CN[SSDB)=)TG*a?BL\/p"bWD)Yt0PYiek'\2$pCke&SQY.(n`T4B#a)Bi?$)Fbg[,5RVoB]l;C)#RJOgtfCS)EsnKC]%9MYO![$[/=#AatfCL?+`ZMC*?q")FcHrR/4q1^uo]pMYpQldG:c;)EpXi!;oq754"@jd/6u],Vlh!OM';]nrYoBoHA2i)j+nRRJLb=#Ns+Na"eILA5/0@9D\DVg#iaugtc6O)F[L=)XN6tV'/\O)RP#C8Lf6pJt0h$)XJM3>TnA.)_/=TAt8B3)R#JN<?Y3T)r6;c)Bi2u)t-iG['tsdL1Kfp)UgX!PM\(/Z&t@i@Nf_,(m-CXL\_jsjlc48M)(5BdnT8r"oA"s'B^;N(#<.2)F[aD)XM?:dihg/)Cbs4`LNA;)R'+Df-+63)r7G.)Vo*C)CN&7gtf"H)TLsO#4IbRr3s"!C1NbR)UkE!48>"l`\')0)(JZgCRhmT)R")oX!)^'(b4*h9:Uq])R&9nmicii)3Mn4fD;<?:ZmDg7P\!Hjh/5XfXL"tr+(a,)VkB/)CHf.kM;%3)THTX2Nd&d-/F=l)Z&$-M!+!L5;K4=NP(0+Mmj\4c=EFc)Ul[/Au=in^QE5'.j8mJ)j,NXm.qm%4Qj"VUbZ4o788C@;u.G;)<X>:TA<cg)F[aD)XNLVl607F)Cf4j9IfSNDOddK)QuV!/CTsa/<S.oYSV3/.f*R7]B;UQ(Yr@4)F[jG)XQqHr/kJT7bnjr)CK'=hN?k5Yhc;p)CJk(1.GNV5l0r^GN[WsK`"pf@GS%$)Eu$DdJR)^1[N3rH2Lb[e2!-$\kO4KIJW3PK'.El!&Ao[0MP8#;>LCd)<W;jE0q.dq./>#)Vn[7)Ep&&b19Z1)Vl/E)EuQJf%+%@)XM8u8!->0E$8F$)Fi[B+Pj+7)Z&')b3)WjU&8".q;&4i)EqnU2uHbn!UO&T)Z3\QpG2@_KNh3NjKsG2DCVC,*Lpd])XPW"KHXP8)VqP3)TE&fPU\MNU7C$X)R%/aKotBfkTO.G)r7Y4)TF"j84K?Y%Gd]n)Z"<4*9W]C9`/!.7,>$^)Ep'16i:%%XmAUROSi2r8MU\I/mISJ'spLTAh#+]BUf\R)XPd='HpZr)r7Y4)TFHS9=3+1Yabh7)XJEQ+!Fi()r7Y4)TL7Rgd[f@ADNpp)Yuh'=m+NMF8T,UZ/)&g)En<1_u*UP7dQ0?dem2_1G\.Q6sGhV8btVlFlt9]HehsC)F[aD)XR/4e0.p0)RNBLkpgn:5Fa5B)XO960-OF5)VmFi)TG`1p*!NR(u74g)TGd+7*P/MZe`,,)TGQ^8DQQI)N=8i$7\oI4.P%D)R$dm#i,e&)CLn*PhcT\)TGW$fo[.YAKb7n)'N3")#?eOf&uqnmP6Gm;S:!mYd[8rdU_)N)Rl_%94Zis)W[D^@^eT'=Cb#B)S@cu_]`5")X]DZl.m*j)@=,!`$ti5nXTLq)R#'$#Mf@q)CKC-6JV_Z)TGB=/WiDK`9h7S)Z#lpeE93#(c%M`K=hmgMqn@K)CLn^:Yc*g)THcu]oe*"VX8%4)Ys["-g+T3G;9.F&%j,r+h)E]?Y&+6)Bi<#)X`/%a5(#:)S;7:h^\T2s.&$d)R%Jm&D[=%)CLI8=ks/q)TKtY'9U\^kO!%#)Z'6Z!p<i(CGNZXHG&5%j0qHNb[fZN)UjX;h1FpN[b\h:)CI9MAW^?u0&<9<)CH`eN?MLA(u8I5)TEl:Hhq2;?0<u`cSC%uf=YsH.+;K!6Z.!$pYE_&)CM)LWKEZHrS=4a)CIp(@j,%l(u5rC)TFASZ23PZro`;Wd5%?nT=e]QFONA*d_\db\D>%<)CMT\Y*$Ute(pc7)CO0O>Tm;e(u8I5)TLM?htiuGiTDW_+#5FK!PH?(d*qAfqn_[iJ0B%N)_*f9g74iT)R!/4+sD(E(e3sc`qh,%0'<tAJc&Ucp>)\`)F!0`SbuS*IdH<USGZJ)+>S//\\(%o3b;S9daiOV(q3'p8S"M5)Bj,:)_)c6Vjpa+)R$+\n0)ff(e.;s>5I@S3p.B[[/=#A]A:[H)Eor\_u*UP$LEt%9Dhm-O>86o'YI?66=i-k^XdE@(q8Sa<Ff)K)Ui^t3p*$D2Bd)V)_)N^\XZ82)QtltOOFBM_;1h$)CIK-?JT91)TJ(&b)t+%q;%k_)YsFLHKUB)!\tDW.U/!3HId*P)^05;
+-- =====================================================================
+--  CUSTOM UI  (tema ungu-biru, sidebar tab, bisa dilipat dengan tombol - / +)
+-- =====================================================================
+local C = {
+    bg     = Color3.fromRGB(8, 8, 140),     -- bingkai luar
+    panel  = Color3.fromRGB(92, 75, 158),   -- panel isi
+    side   = Color3.fromRGB(62, 48, 128),   -- sidebar
+    row    = Color3.fromRGB(100, 82, 170),  -- tombol / baris
+    tabOn  = Color3.fromRGB(145, 120, 235), -- tab terpilih
+    off    = Color3.fromRGB(70, 55, 140),   -- toggle mati / track slider
+    line   = Color3.fromRGB(45, 25, 255),   -- garis biru
+    text   = Color3.fromRGB(255, 255, 255),
+    dim    = Color3.fromRGB(215, 205, 240),
+    accent = Color3.fromRGB(150, 125, 255),
+    on     = Color3.fromRGB(120, 255, 170), -- toggle nyala
+}
+
+local function create(class, props, parent)
+    local o = Instance.new(class)
+    for k, v in pairs(props) do
+        o[k] = v
+    end
+    o.Parent = parent
+    return o
+end
+
+local function corner(o, r)
+    create("UICorner", { CornerRadius = UDim.new(0, r or 6) }, o)
+end
+
+local function stroke(o, color, thick)
+    create("UIStroke", { Color = color or C.line, Thickness = thick or 1 }, o)
+end
+
+local function padding(o, p)
+    create("UIPadding", {
+        PaddingTop = UDim.new(0, p), PaddingBottom = UDim.new(0, p),
+        PaddingLeft = UDim.new(0, p), PaddingRight = UDim.new(0, p),
+    }, o)
+end
+
+local function label(parent, text, size, color, align)
+    return create("TextLabel", {
+        BackgroundTransparency = 1,
+        Text = text,
+        TextSize = size or 14,
+        TextColor3 = color or C.text,
+        Font = Enum.Font.FredokaOne,
+        TextXAlignment = align or Enum.TextXAlignment.Left,
+        Size = UDim2.new(1, 0, 1, 0),
+    }, parent)
+end
+
+local function tween(o, props)
+    TweenService:Create(o, TweenInfo.new(0.15), props):Play()
+end
+
+local function safe(fn, ...)
+    if fn then
+        pcall(fn, ...)
+    end
+end
+
+local function isPointer(i)
+    return i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch
+end
+
+local function isMove(i)
+    return i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch
+end
+
+-- baris dasar: judul + (opsional) description di bawahnya
+local function makeRow(scroll, order, cfg, centered, reserve)
+    local hasDesc = cfg.Description ~= nil and cfg.Description ~= ""
+    local h = hasDesc and 52 or 38
+    local row = create("Frame", { BackgroundColor3 = C.row, Size = UDim2.new(1, 0, 0, h), LayoutOrder = order }, scroll)
+    corner(row, 6)
+    stroke(row, C.line, 2)
+
+    local align = centered and Enum.TextXAlignment.Center or Enum.TextXAlignment.Left
+    local t = label(row, cfg.Title, 15, C.text, align)
+    t.Position = UDim2.fromOffset(10, hasDesc and 5 or 0)
+    t.Size = UDim2.new(1, -(20 + (reserve or 0)), 0, hasDesc and 22 or h)
+
+    if hasDesc then
+        local d = label(row, cfg.Description, 11, C.dim, align)
+        d.Font = Enum.Font.Gotham
+        d.TextTruncate = Enum.TextTruncate.AtEnd
+        d.Position = UDim2.fromOffset(10, 28)
+        d.Size = UDim2.new(1, -(20 + (reserve or 0)), 0, 16)
+    end
+    return row
+end
+
+local function makeColumn(scroll)
+    local col = {}
+    local order = 0
+    local function nextOrder()
+        order += 1
+        return order
+    end
+
+    -- judul kolom (seperti "button", "Dropdown", "Toggle")
+    function col:Section(text)
+        local l = label(scroll, text, 17, C.text, Enum.TextXAlignment.Center)
+        l.Size = UDim2.new(1, 0, 0, 24)
+        l.LayoutOrder = nextOrder()
+    end
+
+    function col:Paragraph(text)
+        local l = create("TextLabel", {
+            BackgroundTransparency = 1,
+            Text = text or "",
+            TextWrapped = true,
+            TextColor3 = C.text,
+            TextSize = 13,
+            Font = Enum.Font.GothamMedium,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            TextYAlignment = Enum.TextYAlignment.Top,
+            Size = UDim2.new(1, 0, 0, 0),
+            AutomaticSize = Enum.AutomaticSize.Y,
+            LayoutOrder = nextOrder(),
+        }, scroll)
+        return { Set = function(_, s) l.Text = s end }
+    end
+
+    function col:Button(cfg)
+        local row = makeRow(scroll, nextOrder(), cfg, true, 0)
+        local hit = create("TextButton", { Text = "", BackgroundTransparency = 1, Size = UDim2.new(1, 0, 1, 0) }, row)
+        hit.Activated:Connect(function()
+            safe(cfg.Callback)
+        end)
+    end
+
+    function col:Toggle(cfg)
+        local state = cfg.Default or false
+        local row = makeRow(scroll, nextOrder(), cfg, false, 56)
+
+        local sw = create("Frame", { AnchorPoint = Vector2.new(1, 0.5), Position = UDim2.new(1, -10, 0.5, 0), Size = UDim2.fromOffset(44, 22), BackgroundColor3 = C.off }, row)
+        corner(sw, 6)
+        local knob = create("Frame", { AnchorPoint = Vector2.new(0, 0.5), Position = UDim2.new(0, 2, 0.5, 0), Size = UDim2.fromOffset(18, 18), BackgroundColor3 = Color3.fromRGB(40, 20, 130) }, sw)
+        corner(knob, 4)
+
+        local function render(anim)
+            local pos = state and UDim2.new(1, -20, 0.5, 0) or UDim2.new(0, 2, 0.5, 0)
+            local color = state and C.on or C.off
+            if anim then
+                tween(knob, { Position = pos })
+                tween(sw, { BackgroundColor3 = color })
+            else
+                knob.Position = pos
+                sw.BackgroundColor3 = color
+            end
+        end
+        render(false)
+
+        local hit = create("TextButton", { Text = "", BackgroundTransparency = 1, Size = UDim2.new(1, 0, 1, 0) }, row)
+        hit.Activated:Connect(function()
+            state = not state
+            render(true)
+            safe(cfg.Callback, state)
+        end)
+
+        return { Set = function(_, v) state = v; render(true) end }
+    end
+
+    function col:Slider(cfg)
+        local min, max = cfg.Min, cfg.Max
+        local value = cfg.Default or min
+
+        local row = create("Frame", { BackgroundColor3 = C.row, Size = UDim2.new(1, 0, 0, 56), LayoutOrder = nextOrder() }, scroll)
+        corner(row, 6)
+        stroke(row, C.line, 2)
+
+        local t = label(row, cfg.Title, 15)
+        t.Position = UDim2.fromOffset(10, 4)
+        t.Size = UDim2.new(1, -70, 0, 22)
+        local v = label(row, tostring(value), 15, C.text, Enum.TextXAlignment.Right)
+        v.Position = UDim2.new(1, -60, 0, 4)
+        v.Size = UDim2.new(0, 50, 0, 22)
+
+        local bar = create("Frame", { BackgroundColor3 = C.off, BorderSizePixel = 0, Position = UDim2.fromOffset(12, 36), Size = UDim2.new(1, -24, 0, 8) }, row)
+        corner(bar, 4)
+        local fill = create("Frame", { BackgroundColor3 = C.accent, BorderSizePixel = 0, Size = UDim2.new(0, 0, 1, 0) }, bar)
+        corner(fill, 4)
+        local knob = create("Frame", { AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.new(0, 0, 0.5, 0), Size = UDim2.fromOffset(16, 16), BackgroundColor3 = Color3.new(1, 1, 1), BorderSizePixel = 0 }, bar)
+        corner(knob, 4)
+
+        local function render()
+            local a = (value - min) / (max - min)
+            fill.Size = UDim2.new(a, 0, 1, 0)
+            knob.Position = UDim2.new(a, 0, 0.5, 0)
+            v.Text = tostring(value)
+        end
+        render()
+
+        local dragging = false
+        local function update(x)
+            local a = math.clamp((x - bar.AbsolutePosition.X) / bar.AbsoluteSize.X, 0, 1)
+            local nv = math.floor(min + a * (max - min) + 0.5)
+            if nv ~= value then
+                value = nv
+                render()
+                safe(cfg.Callback, value)
+            end
+        end
+
+        local hit = create("TextButton", { Text = "", BackgroundTransparency = 1, Position = UDim2.fromOffset(0, 26), Size = UDim2.new(1, 0, 0, 30) }, row)
+        hit.InputBegan:Connect(function(i)
+            if isPointer(i) then
+                dragging = true
+                update(i.Position.X)
+            end
+        end)
+        UIS.InputChanged:Connect(function(i)
+            if dragging and isMove(i) then
+                update(i.Position.X)
+            end
+        end)
+        UIS.InputEnded:Connect(function(i)
+            if isPointer(i) then
+                dragging = false
+            end
+        end)
+    end
+
+    function col:Dropdown(cfg)
+        local current = cfg.Default or cfg.Options[1]
+
+        local box = create("Frame", { BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 38), AutomaticSize = Enum.AutomaticSize.Y, LayoutOrder = nextOrder() }, scroll)
+        create("UIListLayout", { Padding = UDim.new(0, 4), SortOrder = Enum.SortOrder.LayoutOrder }, box)
+
+        local head = makeRow(box, 1, cfg, false, 150)
+
+        local sel = create("TextButton", {
+            Text = current,
+            AutoButtonColor = false,
+            AnchorPoint = Vector2.new(1, 0.5),
+            Position = UDim2.new(1, -8, 0.5, 0),
+            Size = UDim2.fromOffset(136, 26),
+            BackgroundColor3 = C.off,
+            TextColor3 = C.text,
+            TextSize = 12,
+            Font = Enum.Font.FredokaOne,
+            TextTruncate = Enum.TextTruncate.AtEnd,
+        }, head)
+        corner(sel, 5)
+        stroke(sel, C.line, 1)
+
+        local list = create("Frame", { BackgroundTransparency = 1, Visible = false, Size = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, LayoutOrder = 2 }, box)
+        create("UIListLayout", { Padding = UDim.new(0, 4), SortOrder = Enum.SortOrder.LayoutOrder }, list)
+
+        for idx, opt in ipairs(cfg.Options) do
+            local ob = create("TextButton", {
+                Text = opt,
+                AutoButtonColor = false,
+                BackgroundColor3 = C.row,
+                TextColor3 = C.text,
+                TextSize = 14,
+                Font = Enum.Font.FredokaOne,
+                Size = UDim2.new(1, 0, 0, 32),
+                LayoutOrder = idx,
+            }, list)
+            corner(ob, 6)
+            stroke(ob, C.line, 2)
+            ob.Activated:Connect(function()
+                current = opt
+                sel.Text = opt
+                list.Visible = false
+                safe(cfg.Callback, opt)
+            end)
+        end
+
+        sel.Activated:Connect(function()
+            list.Visible = not list.Visible
+        end)
+    end
+
+    return col
+end
+
+local function newScroll(parent, pos, size)
+    local s = create("ScrollingFrame", {
+        BackgroundColor3 = C.panel,
+        BorderSizePixel = 0,
+        Position = pos,
+        Size = size,
+        CanvasSize = UDim2.new(),
+        AutomaticCanvasSize = Enum.AutomaticSize.Y,
+        ScrollBarThickness = 3,
+        ScrollingDirection = Enum.ScrollingDirection.Y,
+    }, parent)
+    corner(s, 8)
+    padding(s, 8)
+    create("UIListLayout", { Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }, s)
+    return s
+end
+
+-- buat ScreenGui; coba beberapa parent (gethui -> CoreGui -> PlayerGui) sampai ada yang berhasil
+local function makeGui(name)
+    local gui = Instance.new("ScreenGui")
+    gui.Name = name
+    gui.ResetOnSpawn = false
+    gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    gui.IgnoreGuiInset = true
+    gui.DisplayOrder = 999
+
+    if syn and syn.protect_gui then
+        pcall(syn.protect_gui, gui)
+    end
+
+    local candidates = {
+        function() return gethui and gethui() end,
+        function() return CoreGui end,
+        function() return LP:WaitForChild("PlayerGui", 5) end,
+    }
+    for _, getParent in ipairs(candidates) do
+        local ok, p = pcall(getParent)
+        if ok and p then
+            local ok2 = pcall(function() gui.Parent = p end)
+            if ok2 and gui.Parent == p then
+                return gui
+            end
+        end
+    end
+    error("Tidak bisa menaruh UI di parent mana pun")
+end
+
+-- cfg: { Name = "...", Dev = "...", Description = "..." }
+local function createWindow(cfg)
+    local win = {}
+    local gui = makeGui("YSSHub")
+
+    local FULL = UDim2.fromOffset(540, 330)
+    local FOLDED = UDim2.fromOffset(300, 78)
+
+    local main = create("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Size = FULL,
+        BackgroundColor3 = C.bg,
+        BorderSizePixel = 0,
+        ClipsDescendants = true,
+    }, gui)
+    corner(main, 12)
+    stroke(main, C.line, 3)
+
+    -- header: nama hub, developer, description (selalu terlihat, juga saat dilipat)
+    local header = create("Frame", { BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 72) }, main)
+
+    local nameLbl = label(header, cfg.Name, 20, C.text)
+    nameLbl.Position = UDim2.fromOffset(14, 6)
+    nameLbl.Size = UDim2.new(1, -70, 0, 24)
+
+    local devLbl = label(header, cfg.Dev, 12, C.dim)
+    devLbl.Position = UDim2.fromOffset(14, 30)
+    devLbl.Size = UDim2.new(1, -70, 0, 16)
+
+    local descLbl = label(header, cfg.Description or "", 11, C.dim)
+    descLbl.Font = Enum.Font.Gotham
+    descLbl.TextTruncate = Enum.TextTruncate.AtEnd
+    descLbl.Position = UDim2.fromOffset(14, 48)
+    descLbl.Size = UDim2.new(1, -70, 0, 16)
+
+    local foldBtn = create("TextButton", {
+        Text = "-",
+        AutoButtonColor = false,
+        BackgroundColor3 = C.row,
+        TextColor3 = C.text,
+        TextSize = 26,
+        Font = Enum.Font.FredokaOne,
+        AnchorPoint = Vector2.new(1, 0),
+        Position = UDim2.new(1, -12, 0, 10),
+        Size = UDim2.fromOffset(40, 40),
+    }, header)
+    corner(foldBtn, 8)
+    stroke(foldBtn, C.line, 2)
+
+    -- geser window lewat header
+    local dragging, dragStart, startPos = false, nil, nil
+    header.InputBegan:Connect(function(i)
+        if isPointer(i) then
+            dragging = true
+            dragStart = i.Position
+            startPos = main.Position
+        end
+    end)
+    UIS.InputChanged:Connect(function(i)
+        if dragging and isMove(i) then
+            local d = i.Position - dragStart
+            main.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + d.X, startPos.Y.Scale, startPos.Y.Offset + d.Y)
+        end
+    end)
+    UIS.InputEnded:Connect(function(i)
+        if isPointer(i) then
+            dragging = false
+        end
+    end)
+
+    -- isi: sidebar tab + konten
+    local body = create("Frame", { BackgroundTransparency = 1, Position = UDim2.fromOffset(10, 74), Size = UDim2.new(1, -20, 1, -84) }, main)
+
+    local side = create("ScrollingFrame", {
+        BackgroundColor3 = C.side,
+        BorderSizePixel = 0,
+        Size = UDim2.new(0, 120, 1, 0),
+        CanvasSize = UDim2.new(),
+        AutomaticCanvasSize = Enum.AutomaticSize.Y,
+        ScrollBarThickness = 0,
+    }, body)
+    corner(side, 8)
+    padding(side, 6)
+    create("UIListLayout", { Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }, side)
+
+    local content = create("Frame", { BackgroundTransparency = 1, Position = UDim2.fromOffset(128, 0), Size = UDim2.new(1, -128, 1, 0) }, body)
+
+    -- lipat / buka lagi (- dan +)
+    local folded = false
+    foldBtn.Activated:Connect(function()
+        folded = not folded
+        if folded then
+            body.Visible = false
+            foldBtn.Text = "+"
+            TweenService:Create(main, TweenInfo.new(0.2), { Size = FOLDED }):Play()
+        else
+            foldBtn.Text = "-"
+            TweenService:Create(main, TweenInfo.new(0.2), { Size = FULL }):Play()
+            task.delay(0.2, function()
+                if not folded then
+                    body.Visible = true
+                end
+            end)
+        end
+    end)
+
+    local tabs = {}
+    local function selectTab(tab)
+        for _, t in ipairs(tabs) do
+            t.page.Visible = (t == tab)
+            t.btn.BackgroundColor3 = (t == tab) and C.tabOn or C.row
+        end
+    end
+
+    function win:AddTab(name)
+        local btn = create("TextButton", {
+            Text = name,
+            AutoButtonColor = false,
+            BackgroundColor3 = C.row,
+            TextColor3 = C.text,
+            TextSize = 15,
+            Font = Enum.Font.FredokaOne,
+            Size = UDim2.new(1, 0, 0, 40),
+            LayoutOrder = #tabs + 1,
+        }, side)
+        corner(btn, 6)
+        stroke(btn, C.line, 2)
+
+        local page = create("Frame", { BackgroundTransparency = 1, Size = UDim2.new(1, 0, 1, 0), Visible = false }, content)
+        local left = newScroll(page, UDim2.new(0, 0, 0, 0), UDim2.new(0.5, -4, 1, 0))
+        local right = newScroll(page, UDim2.new(0.5, 4, 0, 0), UDim2.new(0.5, -4, 1, 0))
+
+        local tab = { btn = btn, page = page, Left = makeColumn(left), Right = makeColumn(right) }
+        table.insert(tabs, tab)
+        btn.Activated:Connect(function()
+            selectTab(tab)
+        end)
+        if #tabs == 1 then
+            selectTab(tab)
+        end
+        return tab
+    end
+
+    function win:Notify(title, text, duration)
+        local toast = create("Frame", {
+            AnchorPoint = Vector2.new(0.5, 0),
+            Position = UDim2.new(0.5, 0, 0, -70),
+            Size = UDim2.fromOffset(260, 50),
+            BackgroundColor3 = C.bg,
+        }, gui)
+        corner(toast, 8)
+        stroke(toast, C.line, 2)
+        local a = label(toast, title or "", 14)
+        a.Position = UDim2.fromOffset(10, 4)
+        a.Size = UDim2.new(1, -20, 0, 20)
+        local b = label(toast, text or "", 12, C.dim)
+        b.Font = Enum.Font.Gotham
+        b.Position = UDim2.fromOffset(10, 25)
+        b.Size = UDim2.new(1, -20, 0, 20)
+        tween(toast, { Position = UDim2.new(0.5, 0, 0, 12) })
+        task.delay(duration or 3, function()
+            tween(toast, { Position = UDim2.new(0.5, 0, 0, -70) })
+            task.wait(0.3)
+            toast:Destroy()
+        end)
+    end
+
+    return win
+end
+
+-- =====================================================================
+--  DATA & LOGIKA EGG
+-- =====================================================================
+local Zones = {
+    { "Spooky Passage", Vector3.new(43.27, 122.00, 929.84) },
+    { "Dead Zone",      Vector3.new(141.46, 122.00, 1436.46) },
+    { "Monster Valley", Vector3.new(62.16, 122.00, 1920.62) },
+    { "Pumpkins", Vector3.new(138.60, 122.00, 557.62) },
+    { "Cholate Island", Vector3.new(142.18, 121.94, -131.31) },
+    { "Candy Island", Vector3.new(47.01, 122.00, -369.22) },
+    { "Starter", Vector3.new(49.36, 122.00, -687.12) },
+}
+local HOME = Vector3.new(91.04, 122.00, -750.97)
+
+local ALTITUDE    = 50    -- naik berapa studs sebelum jalan
+local STEP_DIST   = 50    -- jarak tiap teleport menuju Home
+local STEP_DELAY  = 0.9   -- jeda tiap teleport (detik), bisa diganti lewat dropdown
+local TWEEN_SPEED = 950   -- kecepatan tween ke zona (studs/detik)
+local GRAB_TIME   = 0.5   -- lama menembak prompt egg di zona (detik)
+
+local ZoneNames = {}
+for _, z in ipairs(Zones) do
+    table.insert(ZoneNames, z[1])
+end
+
+local SpeedOptions = {
+    "1.0 (LOW SPEED)",
+    "0.9 (Reasonable SPEED)",
+    "0.5 (HIGH SPEED)",
+    "0.1 (NOT SAFE)",
+    "0.09 (NOT SAFE+)",
+}
+
+local selected = ZoneNames[1]
+local running = false      -- Auto Egg
+local grabRunning = false  -- Dual Auto Grab
+local state = "Idle"
+local cycles = 0
+
+local statusLabel = nil
+local notify = function() end
+
+local function refresh()
+    if statusLabel then
+        statusLabel:Set(string.format(
+            "Zone: %s\nState: %s\nSiklus selesai: %d\nTP delay: %.2fs\nTween speed: %d\nAltitude: %d | Step: %d studs",
+            selected, state, cycles, STEP_DELAY, TWEEN_SPEED, ALTITUDE, STEP_DIST
+        ))
+    end
+end
+
+local function setState(s)
+    state = s
+    refresh()
+end
+
+local function getParts()
+    local char = LP.Character
+    local hrp = char and char:FindFirstChild("HumanoidRootPart")
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    return hrp, hum
+end
+
+local function zonePos(name)
+    for _, z in ipairs(Zones) do
+        if z[1] == name then
+            return z[2]
+        end
+    end
+end
+
+local function moveTo(hrp, cf)
+    hrp.CFrame = cf
+    hrp.AssemblyLinearVelocity = Vector3.zero
+end
+
+-- block pengaman yang mengikuti di bawah kaki
+local platform, platConn
+
+local function startPlatform()
+    if platform then
+        return
+    end
+    platform = Instance.new("Part")
+    platform.Name = "ZonePlatform"
+    platform.Size = Vector3.new(10, 1, 10)
+    platform.Anchored = true
+    platform.CanCollide = true
+    platform.Transparency = 0.6
+    platform.Parent = workspace
+
+    platConn = RunService.Heartbeat:Connect(function()
+        local hrp, hum = getParts()
+        if not hrp or not platform then
+            return
+        end
+        local feet = (hum and hum.RigType == Enum.HumanoidRigType.R6) and 3 or ((hum and hum.HipHeight or 2) + hrp.Size.Y / 2)
+        platform.CFrame = CFrame.new(hrp.Position.X, hrp.Position.Y - feet - 0.5, hrp.Position.Z)
+    end)
+end
+
+local function stopPlatform()
+    if platConn then
+        platConn:Disconnect()
+        platConn = nil
+    end
+    if platform then
+        platform:Destroy()
+        platform = nil
+    end
+end
+
+-- Dual Auto Grab: fire sampai 2 ProximityPrompt dalam radius 100 studs
+local function dualGrabEgg()
+    local hrp = getParts()
+    if not hrp then
+        return
+    end
+
+    local prompts = {}
+    for _, d in ipairs(workspace:GetDescendants()) do
+        if d:IsA("ProximityPrompt") and d.Parent then
+            local pPart = d.Parent:IsA("BasePart") and d.Parent or d.Parent:FindFirstChildWhichIsA("BasePart")
+            if pPart and (pPart.Position - hrp.Position).Magnitude <= 100 then
+                table.insert(prompts, d)
+            end
+        end
+    end
+
+    if #prompts >= 2 then
+        task.spawn(function() pcall(fireproximityprompt, prompts[1]) end)
+        task.spawn(function() pcall(fireproximityprompt, prompts[2]) end)
+    elseif #prompts == 1 then
+        task.spawn(function() pcall(fireproximityprompt, prompts[1]) end)
+    end
+end
+
+-- loop toggle "Dual Auto Grab" (jalan terus selama toggle nyala)
+task.spawn(function()
+    while true do
+        if grabRunning then
+            dualGrabEgg()
+        end
+        task.wait(0.1)
+    end
+end)
+
+-- tween halus ke posisi tujuan (bisa dihentikan lewat toggle)
+local function tweenTo(targetCF)
+    local hrp = getParts()
+    if not hrp then
+        return
+    end
+
+    local distance = (hrp.Position - targetCF.Position).Magnitude
+    local duration = math.max(distance / TWEEN_SPEED, 0.01)
+    local tw = TweenService:Create(hrp, TweenInfo.new(duration, Enum.EasingStyle.Linear), { CFrame = targetCF })
+
+    local conn = RunService.Stepped:Connect(function()
+        local h = getParts()
+        if h then
+            h.AssemblyLinearVelocity = Vector3.zero
+        end
+    end)
+
+    tw:Play()
+    local t0 = tick()
+    while running and tw.PlaybackState == Enum.PlaybackState.Playing and tick() - t0 < duration + 2 do
+        task.wait(0.05)
+    end
+    tw:Cancel()
+    conn:Disconnect()
+
+    local h = getParts()
+    if h and running then
+        h.CFrame = targetCF
+    end
+end
+
+local function runOnce(zone)
+    local hrp, hum = getParts()
+    if not hrp or not hum then
+        return
+    end
+
+    -- 1) naik dulu + pasang block
+    setState("Naik " .. ALTITUDE .. " studs")
+    startPlatform()
+    moveTo(hrp, hrp.CFrame + Vector3.new(0, ALTITUDE, 0))
+    task.wait(0.05)
+
+    -- 2) tween ke atas zona tujuan
+    setState("Tween ke zona")
+    tweenTo(CFrame.new(zone + Vector3.new(0, ALTITUDE, 0)))
+    if not running then
+        return
+    end
+
+    -- 3) turun ke zona
+    hrp, hum = getParts()
+    if not hrp or not hum then
+        return
+    end
+    setState("Turun ke zona")
+    moveTo(hrp, CFrame.new(zone))
+    task.wait(0.2)
+
+    -- 4) WalkTo pakai speed sendiri, lalu ambil egg (tembak prompt terus selama GRAB_TIME)
+    setState("Ambil egg")
+    hum:MoveTo(zone)
+    task.wait(0.5)
+    local t1 = tick()
+    while running and tick() - t1 < GRAB_TIME do
+        dualGrabEgg()
+        task.wait(0.1)
+    end
+    if not running then
+        return
+    end
+
+    -- 5) naik dulu lagi
+    hrp = getParts()
+    if not hrp then
+        return
+    end
+    setState("Naik lagi")
+    moveTo(hrp, CFrame.new(hrp.Position + Vector3.new(0, ALTITUDE, 0)))
+    task.wait(0.05)
+
+    -- 6) teleport bertahap (STEP_DIST studs tiap STEP_DELAY detik) ke atas Home
+    setState("Menuju Home")
+    hrp = getParts()
+    if not hrp then
+        return
+    end
+    local startPos = hrp.Position
+    local endPos = HOME + Vector3.new(0, ALTITUDE, 0)
+    local total = (endPos - startPos).Magnitude
+    if total > 0 then
+        local unit = (endPos - startPos).Unit
+        local travelled = 0
+        while running and travelled < total do
+            travelled = math.min(travelled + STEP_DIST, total)
+            local h = getParts()
+            if h then
+                moveTo(h, CFrame.new(startPos + unit * travelled))
+            end
+            task.wait(STEP_DELAY)
+        end
+    end
+    if not running then
+        return
+    end
+
+    -- 7) turun ke Home
+    hrp = getParts()
+    if hrp then
+        moveTo(hrp, CFrame.new(HOME))
+    end
+    cycles += 1
+    refresh()
+    task.wait(0.5)
+end
+
+-- =====================================================================
+--  BUILD UI
+-- =====================================================================
+local function BuildHub()
+    local Window = createWindow({
+        Name = "YSS HUB",
+        Dev = "DEV: GG SIH LUH",
+        Description = "Auto Egg + Zone Teleport | UPDATE-9.5",
+    })
+    notify = function(title, text, duration)
+        Window:Notify(title, text, duration)
+    end
+
+    -- ===== Tab 1: Egg =====
+    local Tab = Window:AddTab("Egg")
+    local L, R = Tab.Left, Tab.Right
+
+    L:Section("Zone")
+    L:Dropdown({
+        Title = "Pilih Zone",
+        Description = "Zona tujuan auto egg",
+        Options = ZoneNames,
+        Default = ZoneNames[1],
+        Callback = function(v)
+            selected = v
+            refresh()
+        end,
+    })
+
+    L:Section("Auto")
+    L:Dropdown({
+        Title = "Teleport Speed",
+        Description = "Jeda tiap teleport ke Home",
+        Options = SpeedOptions,
+        Default = SpeedOptions[2],
+        Callback = function(v)
+            local num = tonumber(tostring(v):match("^[%d%.]+"))
+            if num then
+                STEP_DELAY = num
+                refresh()
+            end
+        end,
+    })
+
+    L:Toggle({
+        Title = "Auto Egg",
+        Description = "Naik, tween, ambil egg, balik Home",
+        Default = false,
+        Callback = function(v)
+            running = v
+            if v then
+                task.spawn(function()
+                    while running do
+                        local pos = zonePos(selected)
+                        if pos then
+                            runOnce(pos)
+                        end
+                        task.wait(1)
+                    end
+                    stopPlatform()
+                    setState("Idle")
+                end)
+            else
+                stopPlatform()
+                setState("Idle")
+            end
+        end,
+    })
+
+    L:Toggle({
+        Title = "Dual Auto Grab",
+        Description = "Ambil egg otomatis radius 100 studs",
+        Default = false,
+        Callback = function(v)
+            grabRunning = v
+        end,
+    })
+
+    L:Slider({
+        Title = "Tween Speed",
+        Min = 200,
+        Max = 2800,
+        Default = TWEEN_SPEED,
+        Callback = function(v)
+            TWEEN_SPEED = v
+            refresh()
+        end,
+    })
+
+    L:Slider({
+        Title = "Altitude (studs)",
+        Min = 10,
+        Max = 150,
+        Default = ALTITUDE,
+        Callback = function(v)
+            ALTITUDE = v
+            refresh()
+        end,
+    })
+
+    L:Slider({
+        Title = "Step Distance (studs)",
+        Min = 5,
+        Max = 50,
+        Default = STEP_DIST,
+        Callback = function(v)
+            STEP_DIST = v
+            refresh()
+        end,
+    })
+
+    R:Section("Status Server")
+    statusLabel = R:Paragraph("")
+    refresh()
+
+    -- ===== Tab 2: Teleport =====
+    local TpTab = Window:AddTab("Teleport")
+    local TL, TR = TpTab.Left, TpTab.Right
+    local tpZone = ZoneNames[1]
+
+    TL:Section("Zone")
+    TL:Dropdown({
+        Title = "Zone",
+        Description = "Pilih tujuan teleport",
+        Options = ZoneNames,
+        Default = ZoneNames[1],
+        Callback = function(v)
+            tpZone = v
+        end,
+    })
+
+    TL:Button({
+        Title = "Tap To Tp",
+        Description = "Langsung ke zone terpilih",
+        Callback = function()
+            local hrp = getParts()
+            local pos = zonePos(tpZone)
+            if hrp and pos then
+                moveTo(hrp, CFrame.new(pos + Vector3.new(0, 3, 0)))
+            end
+        end,
+    })
+
+    TL:Button({
+        Title = "Teleport Home",
+        Description = "Langsung ke Home",
+        Callback = function()
+            local hrp = getParts()
+            if hrp then
+                moveTo(hrp, CFrame.new(HOME + Vector3.new(0, 3, 0)))
+            end
+        end,
+    })
+
+    TR:Section("Info")
+    TR:Paragraph("YSS HUB\nDEV: GG SIH LUH\nKlik tombol - di pojok untuk melipat UI, + untuk membukanya lagi.")
+
+    Window:Notify("YSS HUB", "DEV: GG SIH LUH", 3)
+end
+
+-- =====================================================================
+--  KEY SYSTEM + LAUNCH
+-- =====================================================================
+local KEY = "UPDATE-9.5"
+
+local function showError(err)
+    warn("[YSS HUB] " .. tostring(err))
+    pcall(function()
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "YSS HUB Error",
+            Text = tostring(err):sub(1, 180),
+            Duration = 20,
+        })
+    end)
+end
+
+local function showKeyScreen(onSuccess)
+    local gui = makeGui("YSSHubKey")
+
+    local frame = create("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Size = UDim2.fromOffset(320, 210),
+        BackgroundColor3 = C.bg,
+        BorderSizePixel = 0,
+    }, gui)
+    corner(frame, 10)
+    stroke(frame, C.accent, 1)
+
+    local title = label(frame, "YSS HUB", 22, C.accent, Enum.TextXAlignment.Center)
+    title.Font = Enum.Font.GothamBold
+    title.Position = UDim2.fromOffset(0, 12)
+    title.Size = UDim2.new(1, 0, 0, 28)
+
+    local dev = label(frame, "DEV: GG SIH LUH", 13, Color3.fromRGB(150, 150, 150), Enum.TextXAlignment.Center)
+    dev.Position = UDim2.fromOffset(0, 42)
+    dev.Size = UDim2.new(1, 0, 0, 20)
+
+    local box = create("TextBox", {
+        PlaceholderText = "Masukkan key...",
+        PlaceholderColor3 = Color3.fromRGB(120, 120, 120),
+        Text = "",
+        ClearTextOnFocus = false,
+        BackgroundColor3 = C.row,
+        TextColor3 = C.text,
+        TextSize = 14,
+        Font = Enum.Font.Gotham,
+        Position = UDim2.new(0, 20, 0, 76),
+        Size = UDim2.new(1, -40, 0, 38),
+    }, frame)
+    corner(box, 6)
+
+    local msg = label(frame, "", 12, Color3.fromRGB(255, 100, 100), Enum.TextXAlignment.Center)
+    msg.Position = UDim2.fromOffset(0, 119)
+    msg.Size = UDim2.new(1, 0, 0, 18)
+
+    local btn = create("TextButton", {
+        Text = "Verify",
+        AutoButtonColor = false,
+        BackgroundColor3 = C.accent,
+        TextColor3 = Color3.new(1, 1, 1),
+        TextSize = 15,
+        Font = Enum.Font.GothamBold,
+        Position = UDim2.new(0, 20, 0, 148),
+        Size = UDim2.new(1, -40, 0, 38),
+    }, frame)
+    corner(btn, 6)
+
+    btn.Activated:Connect(function()
+        local entered = string.match(box.Text, "^%s*(.-)%s*$")
+        if entered == KEY then
+            gui:Destroy()
+            onSuccess()
+        else
+            msg.Text = "Key salah!"
+        end
+    end)
+end
+
+local function launch()
+    local ok, err = xpcall(BuildHub, debug.traceback)
+    if not ok then
+        showError(err)
+    end
+end
+
+local ok, err = xpcall(function()
+    showKeyScreen(launch)
+end, debug.traceback)
+if not ok then
+    showError(err)
+end
